@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 m-auto">
+            <div class="signup-container card card-body">
+                <h2 class="signup-header text-center my-4"><i class="fa fa-user-plus"></i> SignUp</h2>
+                <%- include('../partials/messages.ejs'); -%>
+                <form method="post" action="/users/register">
+                    <div class="mb-2">
+                        <label class="form-label">First Name</label>
+                        <input type="text" name="first_name" class="form-control" value="<%= typeof first_name != 'undefined' ? first_name : '' %>">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" name="last_name" class="form-control" value="<%= typeof last_name != 'undefined' ? last_name : '' %>">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Email address</label>
+                        <input type="email" class="form-control" name="email" value="<%= typeof email != 'undefined' ? email : '' %>">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" name="re_password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                  </form>
+                  <p class="lead mt-4">Have An Account <a class="to_login" href="/users/login">Login</a></p>
+            </div>
+        </div>
+    </div>
+</div>

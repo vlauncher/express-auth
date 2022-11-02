@@ -1,0 +1,20 @@
+.signup-container{
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.signup-container .btn{
+    width: 100%;
+}
+
+
+.login-container{
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.login-container .btn{
+    width: 100%;
+}
+.to_login {
+    text-decoration: none;
+    color: blue;
+}

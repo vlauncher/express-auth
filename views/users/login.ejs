@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 m-auto">
+            <div class="login-container card card-body">
+                <h2 class="login-header text-center my-4"><i class="fas fa-sign-in-alt"></i> Login</h2>
+                <%- include('../partials/messages.ejs'); -%>
+                <form method="post" action="/users/login">
+                    <div class="mb-2">
+                        <label class="form-label">Email address</label>
+                        <input type="email" name="email" class="form-control" value="<%= typeof email != 'undefined' ? email : '' %>">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                  </form>
+                  <p class="lead mt-4">Dont have an account? <a class="to_login" href="/users/register">SignUp</a></p>
+            </div>
+        </div>
+    </div>
+</div>
