@@ -5,7 +5,11 @@ const User = require('../models/users');
 
 /* GET Register Page */
 router.get('/register', function(req, res, next) {
-  res.render('users/register');
+  if(req.user){
+    res.redirect('/');
+  } else {
+    res.render('users/register');
+  }
 });
 
 /* Handle Registeration */
@@ -54,22 +58,36 @@ router.post('/register', async function(req,res,next){
 
 /* GET Login Page */
 router.get('/login', function(req, res, next) {
-  res.render('users/login');
+  if(req.user){
+    res.redirect('/');
+  } else {
+    res.render('users/login')
+  }
 });
 
 /* Handle Login */
 router.post('/login',(req,res,next)=>{
   passport.authenticate('local',{
-    succesRedirect : '/',
-    succesMessage : 'Login Success',
+    successRedirect : '/',
     failureRedirect: '/users/login',
     failureFlash:true 
   })(req,res,next);
 });
 
-/* GET Login Page */
+/* GET Logout Page */
 router.get('/logout', function(req, res, next) {
   res.render('users/logout');
 });
+
+/* Handle lOGOUT  */
+router.post('/logout',(req,res,next)=>{
+  req.logout((err)=>{
+    if(err){
+      return next(err);
+    }
+    req.flash('success_msg','Logout Success');
+    res.redirect('/users/login');
+  });
+})
 
 module.exports = router;
