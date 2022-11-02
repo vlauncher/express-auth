@@ -1,4 +1,3 @@
-const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -7,6 +6,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const layouts = require('express-ejs-layouts');
+const helmet = require('helmet')
 const dotenv = require('dotenv').config();
 
 const indexRouter = require('./routes/index');
