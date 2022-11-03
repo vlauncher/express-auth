@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const db = require('../config/db');
 const bcrypt = require('bcryptjs');
+const Profile = require('./profile');
 
 const User = db.define('User',{
     first_name : {
@@ -39,5 +40,8 @@ const User = db.define('User',{
 User.prototype.validatePassword = async (password)=>{
     return await bcrypt.compare(password,this.password)
 }
+
+Profile.belongsTo(User)
+User.hasOne(Profile)
 
 module.exports = User;
