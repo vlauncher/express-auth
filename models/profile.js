@@ -5,13 +5,13 @@ const { DataTypes } = require('sequelize');
 const Profile = db.define('Profile',{
     address : {
         type:DataTypes.STRING,
-        allowNull:false
+        allowNull:true
     },
     age : {
         type : DataTypes.INTEGER,
-        allowNull:false
+        allowNull:true
     }
-},{tableName:'users'})
+},{tableName:'profile'})
 
 
 
